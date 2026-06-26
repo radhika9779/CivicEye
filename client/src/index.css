@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --civic-blue: #2563eb;
+  --civic-dark: #0f172a;
+  --civic-surface: #f8fafc;
+  --civic-card: #ffffff;
+  --civic-border: #e2e8f0;
+
+  --severity-low: #16a34a;
+  --severity-medium: #d97706;
+  --severity-high: #ea580c;
+  --severity-critical: #dc2626;
+
+  --safety-purple: #9333ea;
+  --safety-bg: #faf5ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--civic-surface);
+  color: var(--civic-dark);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.font-data {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* Visible keyboard focus everywhere — accessibility floor */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--civic-blue);
+  outline-offset: 2px;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Hide scrollbar for horizontal category chip rows, keep it scrollable */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Leaflet map container needs explicit height or it collapses to 0 */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  font-family: 'IBM Plex Sans', sans-serif;
+  z-index: 0;
+}
+
+/* Custom severity pin marker (used via L.divIcon) */
+.civic-pin {
+  width: 28px;
+  height: 28px;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.35);
+  border: 2px solid white;
+}
+.civic-pin-dot {
+  transform: rotate(45deg);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+.civic-pin-pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 50% 50% 50% 0;
+  animation: pulsePin 2s ease-out infinite;
+}
+
+@keyframes pulsePin {
+  0% { transform: rotate(-45deg) scale(1); opacity: 0.6; }
+  70% { transform: rotate(-45deg) scale(2.2); opacity: 0; }
+  100% { transform: rotate(-45deg) scale(2.2); opacity: 0; }
+}
