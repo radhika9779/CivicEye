@@ -194,31 +194,8 @@ npm run dev         # Starts on http://localhost:5173
 | issue_updated | All connected clients | On status or severity change |
 | sos_alert | Admin room only | When SOS is triggered |
 
----
 
-## Current Status
 
-Done:
-- Full citizen issue reporting flow with GPS and photo
-- AI severity scoring engine — explainable, rule-based
-- Auto ward routing by GPS bounding box
-- JWT authentication with 3 roles (citizen, officer, admin)
-- Admin dashboard with stats, charts, issue management
-- Officer assignment and status tracking with resolution notes
-- Community upvoting with live AI score recalculation
-- Real-time updates via Socket.io
-- SOS alert — one tap, GPS to admin instantly
-- Route safety scoring algorithm
-- Anonymous unsafe area reporting
-- Safety heat map
-- Nearby safe locations sorted by distance
-
-Roadmap:
-- Auto-escalation when officer does not act within SLA
-- Cloudinary integration for cloud photo storage
-- Redis caching for upvote counts
-- Email notifications to ward officers on assignment
-- Push notifications for citizens
 
 
 
